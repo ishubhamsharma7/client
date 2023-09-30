@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { Link, Route, Routes } from 'react-router-dom';
+import UserForm  from './pages/UserForm';
+import UserDetails from './pages/UserDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'> Home</Link>
+          </li>
+          <li>
+            <Link to='/users/detail'> Users</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path='/' element={<UserForm/>}/>
+        <Route path='/users/detail' element={<UserDetails/>}/>
+      </Routes>
     </div>
   );
 }
